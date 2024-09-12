@@ -333,3 +333,11 @@ footer{
   color: rgb(216, 213, 213);
   border-radius: 30px;
 }
+.alishassan{
+  background:linear-gradient(90deg,rgb(88, 106, 165),rgba(170, 91, 166, 0.918)  );
+  width: 200px;
+  height: 40px;
+  border-radius: 30px;
+  margin-left: 40%;
+  margin-top: 100px;
+}
