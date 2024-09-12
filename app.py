@@ -83,5 +83,3 @@ def generate_code():
     output_text = replace_and_newline(extract_code_from_result(result))
     return jsonify({"code": output_text})
 
-if __name__ == '__main__':
-    app.run(debug=True)
