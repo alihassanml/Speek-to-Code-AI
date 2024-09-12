@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Voice Recorder</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/9d9b446610.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="container-fluid main-1-1">
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+      <nav class="navbar">
+        <a href="" class="nav-a">Home</a>
+        <a href="" class="nav-a">About</a>
+        <a href="" class="nav-a">Contact</a>
+        <a href="" class="nav-a">Help</a>
+      </nav>
+      <button class="welcome-button">AI Power Code</button>
+      <h1 class="welcome">Voice To Code AI</h1>
+      <p class="welcoem-text">This AI Handle your voice and generate code</p>
+      <p class="welcoem-text">its able to generate code in any language</p>
+      <button class="welcome-join">Join Waitlist</button>
+    </div>
+
+    <div class="container-fluid main-1">
+      <div class="row">
+        <div class="col main-2">
+          <div class="row">
+            <div class="col main-5">
+              <h1 class="voice-record">Click Start to Record Your Voice</h1>
+              <ul style="display: inline-flex">
+                <button id="start-recording">Start</button>
+                <li
+                  class="voicebar"
+                  style="height: 20px; margin-top: 60px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 40px; margin-top: 50px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 30px; margin-top: 55px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 20px; margin-top: 60px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 50px; margin-top: 45px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 30px; margin-top: 55px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 20px; margin-top: 60px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 55px; margin-top: 40px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 30px; margin-top: 55px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 20px; margin-top: 60px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 50px; margin-top: 44px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 30px; margin-top: 55px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 20px; margin-top: 60px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 50px; margin-top: 40px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 30px; margin-top: 55px"
+                ></li>
+                <li
+                  class="voicebar"
+                  style="height: 20px; margin-top: 60px"
+                ></li>
+                <button id="stop-recording" disabled>Stop</button>
+              </ul>
+              <form
+                id="upload-form"
+                action="/upload-audio"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <input
+                  type="file"
+                  id="audio-file"
+                  name="file"
+                  style="display: none"
+                />
+              </form>
+            </div>
+            <div class="main-5-2">
+              <div class="div-move" style="margin-left: 40px"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+              <div class="div-move"></div>
+            </div>
+          </div>
+        </div>
+        <!-- -----------------------# -->
+        <div class="col col-7 main-3">
+          <div id="result" class="mt-5"></div>
+          <div class="copy-text">
+            <div class="input-text" id="code-output" class="mt-5"></div>
+            <button><i class="fa fa-clone"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid footer">
+      <footer>
+        <div class="row">
+        <div class="col"><h3 class="feed-back">Provide Your FeedBack</h3></div>
+        <div class="col">
+          <ul style="display: flex;">
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="ab3554b5-b5cd-4c8a-a620-6a96d6e504b6">
+            <input type="text" name="name" id="form-input">
+            <button style="border: none;" type="submit" class="form-button">Submit</button>
+          </ul>
+        </div>
+      </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/recordrtc@5.6.1/RecordRTC.js"></script>
+
+    <script>
+      let copyText = document.querySelector(".copy-text");
+      copyText.querySelector("button").addEventListener("click", function () {
+        let input = copyText.querySelector("div.input-text").textContent;
+        navigator.clipboard
+          .writeText(input)
+          .then(function () {
+            console.log("Text copied to clipboard");
+            copyText.classList.add("active");
+          })
+          .catch(function (error) {
+            console.error("Failed to copy text:", error);
+          });
+
+        setTimeout(function () {
+          copyText.classList.remove("active");
+        }, 2500);
+      });
+    </script>
+
+    <script>
+      let mediaRecorder;
+      let audioChunks = [];
+
+      document
+        .getElementById("start-recording")
+        .addEventListener("click", async () => {
+          try {
+            const stream = await navigator.mediaDevices.getUserMedia({
+              audio: true,
+            });
+            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder.ondataavailable = (event) => {
+              audioChunks.push(event.data);
+            };
+            mediaRecorder.onstop = async () => {
+              const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+              const formData = new FormData();
+              formData.append("audio", audioBlob, "recorded-audio.wav");
+
+              try {
+                const response = await fetch("/record", {
+                  method: "POST",
+                  body: formData,
+                });
+
+                if (!response.ok) {
+                  throw new Error("Network response was not ok");
+                }
+
+                const data = await response.json();
+
+                // Clean the transcription text to remove excess spaces, newlines, etc.
+                const cleanedTranscription = data.transcription
+                  .replace(/\s+/g, " ")
+                  .trim();
+
+                // Insert the cleaned transcription into the HTML
+                document.getElementById("result").innerHTML = `
+                  <ul style="display: flex;">
+                    <textarea id="transcription-text" class="form-control">
+                      ${cleanedTranscription}
+                    </textarea>
+                    <button id="generate-code" class="btn btn-success mt-2">
+                      Generate
+                    </button>
+                  </ul>
+                `;
+
+                document
+                  .getElementById("generate-code")
+                  .addEventListener("click", async () => {
+                    const prompt =
+                      document.getElementById("transcription-text").value;
+                    const response = await fetch("/generate_code", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ prompt }),
+                    });
+
+                    if (!response.ok) {
+                      throw new Error("Network response was not ok");
+                    }
+
+                    const result = await response.json();
+                    document.getElementById("code-output").innerHTML = `
+                          <h2>Generated Code:</h2>
+                          <pre>${result.code}</pre>
+                      `;
+                  });
+              } catch (error) {
+                document.getElementById("result").innerHTML = `
+                      <h2>Error:</h2>
+                      <p>${error.message}</p>
+                  `;
+                console.error("Error:", error);
+              }
+            };
+
+            mediaRecorder.start();
+            document.getElementById("start-recording").disabled = true;
+            document.getElementById("stop-recording").disabled = false;
+          } catch (error) {
+            document.getElementById("result").innerHTML = `
+              <h2>Error:</h2>
+              <p>${error.message}</p>
+          `;
+            console.error("Error:", error);
+          }
+        });
+
+      document
+        .getElementById("stop-recording")
+        .addEventListener("click", () => {
+          if (mediaRecorder) {
+            mediaRecorder.stop();
+            document.getElementById("start-recording").disabled = false;
+            document.getElementById("stop-recording").disabled = true;
+          }
+        });
+    </script>
+
+    <script>
+      animation = gsap.to(".div-move", {
+        height: 30,
+        y: -50,
+        y: 40,
+        borderColor: "#f87171",
+        ease: "sine.inOut",
+        stagger: { each: 0.1, from: "end", repeat: -1, yoyo: true },
+        duration: 1, // Set the duration in seconds
+      });
+    </script>
+
+    <script>
+      let animation;
+
+      // Start animation when the "Start" button is clicked
+      document
+        .getElementById("start-recording")
+        .addEventListener("click", function () {
+          if (!animation) {
+            animation = gsap.to("li", {
+              height: 30,
+              y: -50,
+              y: 40,
+              borderColor: "#f87171",
+              ease: "sine.inOut",
+              stagger: { each: 0.12, from: "end", repeat: -1, yoyo: true },
+              duration: 0.5, // Set the duration in seconds
+            });
+          } else {
+            animation.play(); // Resume the animation if it's already created
+          }
+
+          // Enable the "Stop" button and disable the "Start" button
+          document.getElementById("start-recording").disabled = true;
+          document.getElementById("stop-recording").disabled = false;
+        });
+
+      // Stop animation when the "Stop" button is clicked
+      document
+        .getElementById("stop-recording")
+        .addEventListener("click", function () {
+          if (animation) {
+            animation.pause(); // Pause the animation
+          }
+
+          // Enable the "Start" button and disable the "Stop" button
+          document.getElementById("start-recording").disabled = false;
+          document.getElementById("stop-recording").disabled = true;
+        });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
