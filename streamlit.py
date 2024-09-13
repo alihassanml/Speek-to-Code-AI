@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 
 
-api_key = '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'
+api_key = ''
 client = Groq(api_key=api_key)
 
 
