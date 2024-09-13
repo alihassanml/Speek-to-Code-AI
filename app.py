@@ -4,7 +4,7 @@ import re
 from groq import Groq
 
 app = Flask(__name__)
-api_key = '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'
+api_key = 'Your Api'
 client = Groq(api_key=api_key)
 
 def save_audio_file(audio_data, filename="file.wav"):
