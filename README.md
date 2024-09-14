@@ -8,6 +8,8 @@ A Flask-based web application that transcribes audio into code. Users can upload
 - **Code Generation:** Generate functional code snippets based on text prompts.
 - **3D Website Integration:** Incorporates 3D elements in the web interface (details not provided in this script).
 
+image[./1.png]
+
 ## Installation
 
 1. **Clone the repository:**
